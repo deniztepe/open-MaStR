@@ -40,7 +40,9 @@ jobs:
         MASTR_USER: ${{ secrets.MASTR_USER }}
       run: |
         python -c "from tests import preparation; preparation.create_credentials_file()"
+    - name: Install pytest
+      run: |
+        python -m pip install pytest
     - name: Test with pytest
       run: |
-	python -m pip install pytest
         pytest -vv
